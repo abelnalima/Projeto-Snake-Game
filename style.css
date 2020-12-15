@@ -1,0 +1,9 @@
+
+/*
+Canvas => elemeto que trabalha a parte gráfica e deve ser colocado tanto no html
+quanto no javascript;
+Context => Renderiza o que irá aparecer dentro do campo;
+fillRect => desenha a area (X, Y, Largura, Altura);
+defer => Faz o JS ser carregado no final;
+
+*/
