@@ -7,6 +7,11 @@ snake[0] = {
     y: 8 * box
 }
 let direction = "right";
+let food = { //Aparece em locais aleatorios
+    x: Math.floor(Math.random() * 15 + 1) * box,
+    y: Math.floor(Math.random() * 15 + 1) * box
+    //Math.floor remove o ponto flutuante do Math.random
+}
 
 function criarBG() { //Cria a "area de jogo"
     context.fillStyle = "lightgreen";
@@ -18,6 +23,11 @@ function criarSnake() { //Cria o marcador da snake
         context.fillStyle = "green";
         context.fillRect(snake[i].x, snake[i].y, box, box);
     }
+}
+
+function drawFood() {
+    context.fillStyle = "red";
+    context.fillRect(food.x, food.y, box, box);
 }
 
 document.addEventListener('keydown', update); //Escuta as teclas do teclado
@@ -38,6 +48,7 @@ function iniciarJogo() { //Define o movimento da snake
     
     criarBG();
     criarSnake();
+    drawFood();
 
     let snakeX = snake[0].x; //Coordenadas iniciais da snake
     let snakeY = snake[0].y;
