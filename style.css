@@ -1,4 +1,12 @@
-
+body {
+    height: 95vh;
+    width: 95;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*alinha horizontalmente*/
+    align-items: center; /*alinha verticalmente*/
+    color: rgb(44, 139, 44);
+}
 
 
 /*
