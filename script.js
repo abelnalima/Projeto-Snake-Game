@@ -2,25 +2,25 @@ let canvas = document.getElementById("snake");
 let context = canvas.getContext("2d");
 let box = 32;
 let snake = [];
-snake[0] = {
+snake[0] = { //Posicao inicial da snake no centro da tela
     x: 8 * box,
     y: 8 * box
 }
-let direction = "right";
+let direction = "right"; //direcao inicial padrao
 let food = { //Aparece em locais aleatorios
     x: Math.floor(Math.random() * 15 + 1) * box,
     y: Math.floor(Math.random() * 15 + 1) * box
     //Math.floor remove o ponto flutuante do Math.random
 }
 
-function criarBG() { //Cria a "area de jogo"
+function criarBG() { //Cria o background da "area de jogo"
     context.fillStyle = "lightgreen";
     context.fillRect(0, 0, 16 * box, 16 * box);
 }
 
 function criarSnake() { //Cria o marcador da snake
     for (i = 0; i < snake.length; i++) {
-        context.fillStyle = "green";
+        context.fillStyle = "blue";
         context.fillRect(snake[i].x, snake[i].y, box, box);
     }
 }
@@ -49,7 +49,7 @@ function iniciarJogo() { //Define o movimento da snake
     //Verificar se a "cabeça" se chocou com o "corpo"
     for (i = 1; i < snake.length; i++) {
         if(snake[0].x == snake[i].x && snake[0].y == snake[i].y) {
-            clearInterval(jogo);
+            clearInterval(jogo); //Interrompe a taxa de atualizacao
             alert('Game Over');
         }
     }
@@ -61,13 +61,13 @@ function iniciarJogo() { //Define o movimento da snake
     let snakeX = snake[0].x; //Coordenadas iniciais da snake
     let snakeY = snake[0].y;
 
-    if (direction == "right") snakeX += box; //Adiciona uma box na
-    if (direction == "left") snakeX -= box; //direção do movimento
+    if (direction == "right") snakeX += box; //Adiciona uma box na direção do movimento
+    if (direction == "left") snakeX -= box; 
     if (direction == "up") snakeY -= box;
     if (direction == "down") snakeY += box;
 
-    if(snakeX != food.x || snakeY != food.y) {
-        snake.pop(); //remove uma box mantendo o comprimento da snake
+    if(snakeX != food.x || snakeY != food.y) {//Verifica se a "cabeça" da snake entrou em colisão com a "comida"
+        snake.pop(); //remove a box no final da snake
     } else {
         food.x = Math.floor(Math.random() * 15 + 1) * box;
         food.y = Math.floor(Math.random() * 15 + 1) * box;
@@ -81,5 +81,5 @@ function iniciarJogo() { //Define o movimento da snake
     snake.unshift(newHead);
 }
 
-let jogo = setInterval(iniciarJogo, 100);
+let jogo = setInterval(iniciarJogo, 100); //Taxa de atualizacao
 

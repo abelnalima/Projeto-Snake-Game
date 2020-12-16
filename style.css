@@ -5,7 +5,14 @@ body {
     flex-direction: column;
     justify-content: center; /*alinha horizontalmente*/
     align-items: center; /*alinha verticalmente*/
-    color: rgb(44, 139, 44);
+    color:black;
+    background-color: lightgray;
+}
+
+.rodape {
+    margin-top: 40px;
+    font-size: 20px;
+    color: black;
 }
 
 
