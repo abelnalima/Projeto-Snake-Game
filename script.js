@@ -58,7 +58,12 @@ function iniciarJogo() { //Define o movimento da snake
     if (direction == "up") snakeY -= box;
     if (direction == "down") snakeY += box;
 
-    snake.pop(); //remove uma box mantendo o comprimento da snake
+    if(snakeX != food.x || snakeY != food.y) {
+        snake.pop(); //remove uma box mantendo o comprimento da snake
+    } else {
+        food.x = Math.floor(Math.random() * 15 + 1) * box;
+        food.y = Math.floor(Math.random() * 15 + 1) * box;
+    }
 
     let newHead = {
         x: snakeX,
